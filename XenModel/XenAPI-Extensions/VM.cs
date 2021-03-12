@@ -56,7 +56,7 @@ namespace XenAPI
         // or different XenServer versions.
         private const int DEFAULT_NUM_VCPUS_ALLOWED = 16;
         private const int DEFAULT_NUM_VIFS_ALLOWED = 7;
-        private const int DEFAULT_NUM_VBDS_ALLOWED = 16;
+        private const int DEFAULT_NUM_VBDS_ALLOWED = 255;
         public const long DEFAULT_MEM_ALLOWED = 1 * Util.BINARY_TERA;
         public const int DEFAULT_CORES_PER_SOCKET = 1;
         public const long MAX_SOCKETS = 16;  // current hard limit in Xen: CA-198276
@@ -1107,9 +1107,9 @@ namespace XenAPI
                 os_name = os_name.Substring(0, index);
 
             // CA-9631: conform to MS trademark guidelines
-            if (os_name.StartsWith("Microsoft®"))
+            if (os_name.StartsWith("MicrosoftÂ®"))
             {
-                if (os_name != "Microsoft®")
+                if (os_name != "MicrosoftÂ®")
                     os_name = os_name.Substring(10).Trim();
             }
             else if (os_name.StartsWith("Microsoft"))
